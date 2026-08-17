@@ -6,7 +6,8 @@ title: blank # the website title (if blank, full name will be used instead)
 first_name: Perry
 middle_name: Z.
 last_name: Beamer
-contact_note: > perry.beamer@gmail.com, pbeamer@ncsu.edu
+contact_note: > perry.beamer@gmail.com
+  pbeamer@ncsu.edu
 description: > 
   Perry Beamer's personal website. I'm interested in 
 footer_text: >
