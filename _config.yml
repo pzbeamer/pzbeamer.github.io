@@ -10,7 +10,9 @@ contact_note: >
   perry.beamer@gmail.com
   pbeamer@ncsu.edu
 description: > 
-  Perry Beamer's personal website. I'm interested in 
+  Perry Beamer's personal website. My research applies shape analysis for biological data, especially using methods from topological data analysis and optimal transport. 
+  I focus on applications in molecular/cellular biology, though I'm more broadly interested in any biological application with spatial or geometric data.
+  Some past/ongoing projects include enhancing clustering analysis for spatial transcriptomic data with TDA, and applying TDA and optimal transport to improve protein/ligand binding affinity predictions. 
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
