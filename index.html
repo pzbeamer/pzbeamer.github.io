@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dr. Jane Doe</title>
+  <meta name="description" content="Jane Doe, Assistant Professor of Cognitive Science at Example University.">
+
+  <!-- Optional: fonts. Delete these three lines and the site falls back to Georgia. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ---------- Colors: change these to restyle the whole site ---------- */
+    :root {
+      --bg: #f6f8fa;
+      --text: #1c2631;
+      --muted: #5b6776;
+      --rule: #d5dbe2;
+      --accent: #1d5b78;
+      --highlight: #e4eef3;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #12181f;
+        --text: #e4e9ef;
+        --muted: #98a4b3;
+        --rule: #2b3541;
+        --accent: #86c4de;
+        --highlight: #1d2a35;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+    }
+
+    a { color: var(--accent); text-underline-offset: 3px; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+    /* ---------- Layout: sidebar + main column ---------- */
+    .page {
+      max-width: 62rem;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 4rem;
+      display: grid;
+      grid-template-columns: 15rem minmax(0, 1fr);
+      gap: 4rem;
+    }
+    @media (max-width: 760px) {
+      .page { grid-template-columns: 1fr; gap: 2rem; padding-top: 2rem; }
+    }
+
+    /* ---------- Sidebar ---------- */
+    aside { align-self: start; position: sticky; top: 3.5rem; }
+    @media (max-width: 760px) { aside { position: static; } }
+
+    .portrait {
+      width: 9rem; height: 9rem;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--highlight);
+      display: block;
+      margin-bottom: 1.25rem;
+    }
+    aside h1 { font-size: 1.6rem; line-height: 1.2; margin: 0 0 0.35rem; font-weight: 600; }
+    .role { margin: 0 0 1.25rem; color: var(--muted); font-size: 0.98rem; line-height: 1.5; }
+    .links { list-style: none; margin: 0 0 1.5rem; padding: 0; font-size: 0.98rem; }
+    .links li { margin: 0.2rem 0; }
+
+    nav { border-top: 1px solid var(--rule); padding-top: 1rem; }
+    nav a { display: block; padding: 0.2rem 0; color: var(--muted); text-decoration: none; }
+    nav a:hover { color: var(--accent); }
+    @media (max-width: 760px) {
+      nav { display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
+    }
+
+    /* ---------- Main content ---------- */
+    section { margin-bottom: 3rem; }
+    section:first-child { margin-top: -0.25rem; }
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 0 0 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    p { margin: 0 0 1rem; max-width: 40rem; }
+
+    .news { list-style: none; margin: 0; padding: 0; }
+    .news li { display: grid; grid-template-columns: 5.5rem 1fr; gap: 1rem; margin-bottom: 0.5rem; }
+    .news time { color: var(--muted); font-size: 0.95rem; }
+
+    /* ---------- Publications: year in the margin, entry beside it ---------- */
+    .year {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin: 1.75rem 0 0.5rem;
+    }
+    .pub { margin: 0 0 1.1rem; max-width: 42rem; }
+    .pub .title { font-weight: 600; }
+    .pub .authors, .pub .venue { color: var(--muted); font-size: 0.98rem; }
+    .pub .authors strong { color: var(--text); font-weight: 600; }
+    .pub .venue em { color: var(--text); }
+    .pub .tags { font-size: 0.92rem; margin-top: 0.15rem; }
+    .pub .tags a { margin-right: 0.9rem; }
+    .award {
+      display: inline-block;
+      background: var(--highlight);
+      color: var(--text);
+      font-size: 0.85rem;
+      padding: 0 0.5rem;
+      border-radius: 3px;
+      margin-left: 0.4rem;
+    }
+
+    .course { margin-bottom: 0.6rem; max-width: 42rem; }
+    .course span { color: var(--muted); }
+
+    footer { color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--rule); padding-top: 1rem; }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside>
+      <!-- Put a photo named portrait.jpg next to this file, or delete this line -->
+      <img class="portrait" src="portrait.jpg" alt="Portrait of Jane Doe">
+      <h1>Jane Doe</h1>
+      <p class="role">
+        Assistant Professor<br>
+        Department of Cognitive Science<br>
+        Example University
+      </p>
+
+      <ul class="links">
+        <li><a href="mailto:jane.doe@example.edu">jane.doe@example.edu</a></li>
+        <li><a href="cv.pdf">CV (PDF)</a></li>
+        <li><a href="https://scholar.google.com/">Google Scholar</a></li>
+        <li><a href="https://orcid.org/">ORCID</a></li>
+        <li><a href="https://github.com/">GitHub</a></li>
+      </ul>
+
+      <nav aria-label="Sections">
+        <a href="#about">About</a>
+        <a href="#news">News</a>
+        <a href="#publications">Publications</a>
+        <a href="#teaching">Teaching</a>
+      </nav>
+    </aside>
+
+    <!-- ===================== MAIN ===================== -->
+    <main>
+
+      <section id="about">
+        <h2>About</h2>
+        <p>
+          I study how people learn word meanings from limited evidence. My lab combines
+          behavioral experiments, computational models, and large-scale corpus analysis
+          to ask how children and adults build vocabularies so quickly.
+        </p>
+        <p>
+          Before joining Example University in 2023, I was a postdoctoral fellow at the
+          Institute for Language Research. I completed my PhD at State University,
+          advised by Prof. Alex Smith.
+        </p>
+        <p>
+          <strong>Prospective students:</strong> I am recruiting PhD students for Fall 2027.
+          Please apply through the department and mention my name in your statement.
+        </p>
+      </section>
+
+      <section id="news">
+        <h2>News</h2>
+        <ul class="news">
+          <li><time datetime="2026-09">Sep 2026</time><span>Our paper on word learning in noisy environments was accepted to <em>Cognition</em>.</span></li>
+          <li><time datetime="2026-06">Jun 2026</time><span>Received an NSF grant to study vocabulary growth across languages.</span></li>
+          <li><time datetime="2026-01">Jan 2026</time><span>Invited talk at the Language and Cognition Workshop.</span></li>
+        </ul>
+      </section>
+
+      <section id="publications">
+        <h2>Publications</h2>
+
+        <h3 class="year">2026</h3>
+        <div class="pub">
+          <div class="title">Learning words from noisy input</div>
+          <div class="authors"><strong>Jane Doe</strong>, Alex Smith, and Maria Garcia</div>
+          <div class="venue"><em>Cognition</em>, 250, 105678</div>
+          <div class="tags"><a href="#">PDF</a><a href="#">Code</a><a href="#">Data</a></div>
+        </div>
+
+        <h3 class="year">2025</h3>
+        <div class="pub">
+          <div class="title">A cross-linguistic model of early vocabulary growth<span class="award">Best Paper</span></div>
+          <div class="authors">Maria Garcia, <strong>Jane Doe</strong>, and Chen Wei</div>
+          <div class="venue">Proceedings of the Annual Meeting of the Cognitive Science Society</div>
+          <div class="tags"><a href="#">PDF</a><a href="#">Poster</a></div>
+        </div>
+        <div class="pub">
+          <div class="title">What do toddlers hear? A corpus of home recordings</div>
+          <div class="authors"><strong>Jane Doe</strong> and Chen Wei</div>
+          <div class="venue"><em>Journal of Child Language</em>, 52(3), 401&ndash;428</div>
+          <div class="tags"><a href="#">PDF</a><a href="#">Corpus</a></div>
+        </div>
+
+        <h3 class="year">2023</h3>
+        <div class="pub">
+          <div class="title">Inferring meaning from sparse evidence</div>
+          <div class="authors"><strong>Jane Doe</strong> and Alex Smith</div>
+          <div class="venue"><em>Psychological Review</em>, 130(2), 233&ndash;270</div>
+          <div class="tags"><a href="#">PDF</a></div>
+        </div>
+      </section>
+
+      <section id="teaching">
+        <h2>Teaching</h2>
+        <div class="course">COGS 201: Language and Mind <span>&mdash; Fall 2026</span></div>
+        <div class="course">COGS 340: Computational Models of Cognition <span>&mdash; Spring 2026</span></div>
+        <div class="course">COGS 101: Introduction to Cognitive Science <span>&mdash; Fall 2025</span></div>
+      </section>
+
+      <footer>
+        &copy; 2026 Jane Doe. Last updated October 2026.
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
